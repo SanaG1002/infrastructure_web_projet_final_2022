@@ -22,10 +22,10 @@ class ControlleurNouvelle {
 
     
      /***
-     * Fonction permettant d'afficher une nouvelles
+     * Fonction permettant d'afficher une nouvelle
      */
-    function afficherNouvellePage() {
-        $nouvelles = Nouvelle::ObtenirNouvellePage();
+    function afficherPage() {
+        $nouvelle = Nouvelle::ObtenirUne($_GET['nouvelle_id']);
         require './vues/nouvelles/page.php';
     } 
 }

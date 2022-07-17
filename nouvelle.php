@@ -10,7 +10,7 @@
    
   <?php
       $controllerNouvelle = new ControlleurNouvelle;
-      $controllerNouvelle->afficherNouvellePage();
+      $controllerNouvelle->afficherPage();
     ?>
   
   </div>

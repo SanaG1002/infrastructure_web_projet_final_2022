@@ -3,7 +3,7 @@
   <hr>
   <footer class="py-5 bg-dark">
     <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; (Votre nom) 2022</p>
+      <p class="m-0 text-center text-white">Copyright &copy; Sana Ghariani 2022</p>
     </div>
     <!-- /.container -->
   </footer>

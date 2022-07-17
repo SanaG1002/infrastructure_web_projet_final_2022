@@ -45,6 +45,39 @@ class Categorie {
 
         return $liste;
     }
+
+    
+    /***
+     * Fonction permettant de récupérer une categorie en fonction de son identifiant  
+     */
+    public static function ObtenirUne($id) {
+        $mysqli = self::connecter();
+
+        if ($requete = $mysqli->prepare("SELECT * FROM categories WHERE id=?")) {  // Création d'une requête préparée 
+            $requete->bind_param("s", $id); // Envoi des paramètres à la requête
+
+            $requete->execute(); // Exécution de la requête
+
+            $result = $requete->get_result(); // Récupération de résultats de la requête¸
+            
+            if($enregistrement = $result->fetch_assoc()) { // Récupération de l'enregistrement
+                $categorie = new categorie(
+                $enregistrement['id'], 
+                $enregistrement['categorie']);
+            } else {
+                //echo "Erreur: Aucun enregistrement trouvé.";  // Pour fins de débogage
+                return null;
+            }   
+            
+            $requete->close(); // Fermeture du traitement 
+        } else {
+            echo "Une erreur a été détectée dans la requête utilisée : ";   // Pour fins de débogage
+            echo $mysqli->error;
+            return null;
+        }
+
+        return $categorie;
+    }
 }
 
 ?>

@@ -1,16 +1,18 @@
 <?php
-    require_once './controlleurs/categories.php';
+    require_once './controlleurs/nouvelles.php';
 ?>
 
 <?php include_once('include/header.php'); ?>
 
+
   <!-- Page Content -->
   <div class="container">
+   
   <?php
-      $controllerCategorie = new ControlleurCategorie;
-      $controllerCategorie->afficherNouvellesCategorie();
+      $controllerNouvelle = new ControlleurNouvelle;
+      $controllerNouvelle->afficherNouvellePage();
     ?>
+  
   </div>
 
 <?php include_once('include/footer.php'); ?>
-

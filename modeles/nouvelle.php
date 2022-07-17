@@ -86,7 +86,77 @@ class Nouvelle {
         return $liste;
     }
 
+    /***
+     * Fonction permettant de récupérer l'ensemble des nouvelles actives en fonction d'une categorie
+     */
+    public static function ObtenirToutesActivesCategorie($id) {
+        $liste = [];
+        $mysqli = self::connecter();
 
+        if ($requete = $mysqli->prepare("SELECT * FROM nouvelles WHERE fk_categorie=? AND actif = 1 ORDER BY date_nouvelle DESC LIMIT 3;")) {  // Création d'une requête préparée 
+            $requete->bind_param("s", $id); // Envoi des paramètres à la requête
+
+            $requete->execute(); // Exécution de la requête
+
+            $result = $requete->get_result(); // Récupération de résultats de la requête¸
+            
+            while($enregistrement = $result->fetch_assoc()) { // Récupération de l'enregistrement
+                $liste[] = new nouvelle(
+                $enregistrement['id'], 
+                $enregistrement['titre'], 
+                $enregistrement['description_courte'], 
+                $enregistrement['description_longue'], 
+                $enregistrement['date_nouvelle'], 
+                $enregistrement['actif']);
+            }
+            
+            $requete->close(); // Fermeture du traitement 
+        } else {
+            echo "Une erreur a été détectée dans la requête utilisée : ";   // Pour fins de débogage
+            echo $mysqli->error;
+            return null;
+        }
+
+        return $liste;
+    }
+
+    
+
+    /***
+     * Fonction permettant de récupérer une nouvelle en fonction de son identifiant  
+     */
+    public static function ObtenirUne($id) {
+        $mysqli = self::connecter();
+
+        if ($requete = $mysqli->prepare("SELECT * FROM nouvelles WHERE id=?")) {  // Création d'une requête préparée 
+            $requete->bind_param("s", $id); // Envoi des paramètres à la requête
+
+            $requete->execute(); // Exécution de la requête
+
+            $result = $requete->get_result(); // Récupération de résultats de la requête¸
+            
+            if($enregistrement = $result->fetch_assoc()) { // Récupération de l'enregistrement
+                $nouvelle = new nouvelle(
+                $enregistrement['id'], 
+                $enregistrement['titre'], 
+                $enregistrement['description_courte'], 
+                $enregistrement['description_longue'], 
+                $enregistrement['date_nouvelle'], 
+                $enregistrement['actif']);
+            } else {
+                //echo "Erreur: Aucun enregistrement trouvé.";  // Pour fins de débogage
+                return null;
+            }   
+            
+            $requete->close(); // Fermeture du traitement 
+        } else {
+            echo "Une erreur a été détectée dans la requête utilisée : ";   // Pour fins de débogage
+            echo $mysqli->error;
+            return null;
+        }
+
+        return $nouvelle;
+    }
 }
 
 ?>

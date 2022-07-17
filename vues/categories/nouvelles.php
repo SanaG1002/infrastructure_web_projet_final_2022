@@ -1,16 +1,15 @@
 
-<h1 class="my-4"><?= $categorie->categorie ?></h1>
+<h2><?= $categorie->categorie ?></h2>
 
-<!-- Afficher la liste de toutes nouvelles ACTIVES appartenant à la catégorie sélectionnée en ordre chronologique (de la plus récente à la plus ancienne) -->
-<!-- L'affichage est à votre discrétion -->
-<ul>
 <?php
     foreach ($nouvelles as $nouvelle) {
 ?>
-    <li>
-        <h2><?= $nouvelle->titre ?></h2>
-    </li>
+    <div class="list-group">
+        <a type="button" href="nouvelle.php?nouvelle_id=<?= $nouvelle->id ?>" class="list-group-item list-group-item-action m-2" aria-current="true">
+        <p><?= $nouvelle->titre ?> - <?= $nouvelle->date_nouvelle ?></p>
+        <p><?= $nouvelle->description_courte ?></p>
+        </a>
+    </div>
 <?php
     }
 ?>
-</ul>

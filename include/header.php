@@ -48,7 +48,7 @@
           </ul>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="module_personnel.php">Module personnel</a>
+            <a class="nav-link" href="voyages.php">Voyages</a>
         </li>
 
         <!-- Le menu Administration doit s'afficher seulement lorsque l'utilisateur est connecté !-->

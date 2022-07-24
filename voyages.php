@@ -4,8 +4,8 @@
   <!-- Page Content -->
   <div class="container">
   
-	<h1 class="my-4">Module personnel</h1>	
-	<p>(Remplacez ce paragraphe par une courte phrase qui explique l'information qui est affichée par le module)</p>
+	<h1 class="my-4">Voyages</h1>	
+	<p>Description des voyages que nous proposons</p>
 	
   <?php 
     $mysqli = new mysqli(Db::$host, Db::$username, Db::$password, Db::$database);
@@ -17,7 +17,7 @@
   <h2> <?= $enregistrement['nom'] ?></h2>
     <div class="d-flex align-items-baseline w-100">
     <h4> <?= $enregistrement['titre'] ?></h4>
-    <p class="ml-2"><?= $enregistrement['duree'] ?></p>
+    <p><?= $enregistrement['duree'] ?></p>
     </div>
     <p><?= $enregistrement['description'] ?></p>
 </div>

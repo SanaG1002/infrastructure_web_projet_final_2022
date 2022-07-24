@@ -58,7 +58,7 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="administration_nouvelles.php">Nouvelles</a></li>
-            <li><a class="dropdown-item" href="administration_module_personnel.php">Module personnel</a></li>
+            <li><a class="dropdown-item" href="administration_voyages.php">Voyages</a></li>
           </ul>
         </li>
         <li class="nav-item">

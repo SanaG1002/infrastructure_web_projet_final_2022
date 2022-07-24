@@ -1,5 +1,4 @@
 <!-- Affichage en mode "tableau" -->
-<h2>Affichage en mode "tableau" avec les options ajouter, afficher, modifier et supprimer</h2>
 <table>
     <tr>
         <th>Titre</th>        

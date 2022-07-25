@@ -1,4 +1,4 @@
-
+<?php session_start(); ?>
 <?php
     require_once './controlleurs/categories.php';
 ?>
@@ -52,19 +52,21 @@
         </li>
 
         <!-- Le menu Administration doit s'afficher seulement lorsque l'utilisateur est connecté !-->
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Administration
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="administration_nouvelles.php">Nouvelles</a></li>
-            <li><a class="dropdown-item" href="administration_voyages.php">Voyages</a></li>
-          </ul>
-        </li>
+        <?php if(isset($_SESSION["utilisateur"])) { ?>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Administration
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="administration_nouvelles.php">Nouvelles</a></li>
+              <li><a class="dropdown-item" href="administration_voyages.php">Voyages</a></li>
+            </ul>
+          </li>
+        <?php } ?>
+
         <li class="nav-item">
           <button class="btn btn-outline-info my-2 my-sm-0" data-bs-toggle="modal" data-bs-target="#modalConnexion">Connexion</button>					
         </li>
-
       </ul>
     </div>
   </div>
@@ -79,10 +81,11 @@
 		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 	  </div>
 	  <div class="modal-body">
-		Formulaire de connexion
+  
+    <? require 'vues/authentification/formulaireAuthentification.php'; ?>
+
 	  </div>
 	  <div class="modal-footer">
-		<button type="submit" class="btn btn-primary">Connexion</button>
 		<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
 	  </div>
 	</div>

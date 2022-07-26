@@ -14,10 +14,10 @@
     foreach ($resultatRequete as $enregistrement) {
   ?>
   <div class="d-flex flex-column">
-  <h2> <?= $enregistrement['nom'] ?></h2>
+  <h3> <?= $enregistrement['nom'] ?></h3>
     <div class="d-flex align-items-baseline w-100">
-    <h4> <?= $enregistrement['titre'] ?></h4>
-    <p><?= $enregistrement['duree'] ?></p>
+    <h5> <?= $enregistrement['titre'] ?> - <?= $enregistrement['duree'] ?></h5>
+    <p></p>
     </div>
     <p><?= $enregistrement['description'] ?></p>
 </div>

@@ -9,7 +9,7 @@ class modele_authentification {
     public $courriel;
 
     /***
-     * Fonction permettant de construire un objet de type utilisateur
+     * Fonction permettant de construire un objet de type authentication
      */
     public function __construct($id, $code_utilisateur, $mot_de_passe, $courriel) {
         $this->id = $id;
@@ -62,7 +62,7 @@ class modele_authentification {
         }
 
         return $utilisateur;
-    }
+    } 
 }
 
 ?>

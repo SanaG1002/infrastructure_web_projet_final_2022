@@ -3,7 +3,7 @@
 require_once './modeles/authentification.php';
 
 class ControlleurAuthentification {
-    
+ 
     /***
     * Fonction permettant à un utilisateur de se connecter
     */
